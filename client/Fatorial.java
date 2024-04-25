@@ -1,47 +1,33 @@
 package client;
 
 import java.io.Serializable;
-
 import compute.Task;
 
 public class Fatorial implements Task<Integer>, Serializable {
 
     private static final long serialVersionUID = 227L;
 
-    private final int valor1, valor2; 
-    private final String op; 
+    private int fat = 0; 
 
-    public Calc(Integer valor1, String op, Integer valor2) {
-        this.valor1 = valor1;
-        this.op = op;
-        this.valor2 = valor2;
+    public Fatorial(Integer fat) {
+        this.fat = fat;
     }
 
     @Override
     public Integer execute() {
-        return computeCal(valor1, op, valor2); 
+        return computeFat(fat); 
     }
 
-    public static Integer computeCal(Integer valor1, String op, Integer valor2) {
-        int resultado = 0; 
-
-        switch (op) {
-            case "+":
-                resultado = valor1+valor2; 
-                break;
-            case "-":
-                resultado = valor1-valor2; 
-                break;
-            case "/":      
-                resultado = valor1/valor2; 
-                break;
-            case "*":
-                resultado = valor1*valor2;   
-                break;
-            default:
-                break;
+    public static Integer computeFat(Integer numero) {
+        
+        // Caso base: fatorial de 0 é 1
+        if (numero == 0) {
+            return 1;
+        } 
+         else {
+            // Caso recursivo: fatorial de n é n * (fatorial de n-1)
+            return numero * computeFat(numero - 1);
         }
-        return resultado;  
     }
 
     
