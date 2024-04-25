@@ -23,11 +23,13 @@ public class computeFat {
             // limite superior do tipo int = 2^31 - 1 = 2147483647
             // 13! = 6227020800
             // Assim, foi utilizada a classe FatorialBig, que implementa 'BigInteger' ao invés de 'Integer', 
-            // que oferece um limite superior maior e portanto permite armazenamento de valores muito grandes
+            // que oferece um limite superior maior e, portanto, permite armazenamento de valores muito grandes.
 
-            //Fatorial task = new Fatorial(fat);
             FatorialBig task = new FatorialBig(fat); 
             BigInteger result = comp.executeTask(task);
+            //Fatorial task = new Fatorial(fat);
+            //Integer result = comp.executeTask(task); 
+            
             System.out.println("Resultado: " + result);
         } catch (Exception e) {
             System.err.println("ComputeFat exception:");
